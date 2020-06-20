@@ -1,0 +1,46 @@
+{% extends 'index.html'  %}
+{% block titulo %}
+Insertar Trabajadores
+{% endblock titulo %}
+
+{% block body%}
+<div class="card text-center">
+    <h3 class="card-title">Insertar Trabajador</h3>
+    </div>
+<div class="card">
+    <div class="card-body">
+    <form method="POST">
+           {% csrf_token %}
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="tra_cod" placeholder="Código" required {{ trabajador_form.tra_cod }}
+            <div class="invalid-feedback">
+                Por favor ingrese un código.
+              </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="tra_nom" placeholder="Nombre" {{ trabajador_form.tra_nom }}
+        </div> 
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="tra_apell" placeholder="Apellido" {{ trabajador_form.tra_apell }}
+        </div> 
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="tra_tel" placeholder="Telefono" {{ trabajador_form.tra_tel }}
+        </div> 
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="tra_cargo" placeholder="Cargo" {{ trabajador_form.tra_cargo }}
+        </div> 
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="tra_sal" placeholder="Salario" {{ trabajador_form.tra_sal }}
+        </div> 
+
+        <button type="submit" class="btn btn-primary">Insertar</button>
+    </form>
+ </div>
+</div>
+{% endblock body %}

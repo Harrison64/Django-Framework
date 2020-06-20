@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar ventas{% endblock titulo %}
+
+{% block body %}
+<div class="card text-center">
+    <h3 class="card-title">Lista de ventas</h3>
+    </div>
+   {% if salon %}
+       <table class="table table-bordered">
+           <thead class="table-active">
+               <tr scope="col">
+                   <th>#</th>
+                   <th>Código</th>
+                   <th>Nombre</th>
+                   <th>Descripcion</th>
+                   <th>Costo</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for venta in venta %}
+               <tr>
+                   <td>{{ venta.id }}</td>
+                   <td>{{ venta.ven_codp }}</td>
+                   <td>{{ venta.ven_nom }}</td>
+                   <td>{{ venta.ven_descrip }}</td>
+                   <td>{{ venta.ven_costo }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   {% else %}
+   <h1>No hay ventas registrados</h1>
+   {% endif %}
+
+{% endblock body %}

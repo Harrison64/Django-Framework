@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar cliente{% endblock titulo %}
+
+{% block body %}
+<div class="card text-center">
+<h3 class="card-title">Lista de clientes</h3>
+</div>
+   {% if clientes %}
+       <table class="table table-bordered">
+           <thead class="table-active">
+               <tr scope="col">
+                   <th>#</th>
+                   <th>Código</th>
+                   <th>Nombre</th>
+                   <th>Apellido</th>
+                   <th>Telefono</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for cliente in clientes %}
+               <tr>
+                   <td>{{ cliente.id }}</td>
+                   <td>{{ cliente.cli_cod }}</td>
+                   <td>{{ cliente.cli_nom }}</td>
+                   <td>{{ cliente.cli_apell }}</td>
+                   <td>{{ cliente.cli_tel }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   {% else %}
+   <h1>No hay clientes registrados</h1>
+   {% endif %}
+
+{% endblock body %}

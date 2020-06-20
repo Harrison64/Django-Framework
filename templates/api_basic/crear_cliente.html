@@ -1,0 +1,38 @@
+{% extends 'index.html'  %}
+{% block titulo %}
+Insertar Clientes
+{% endblock titulo %}
+
+{% block body%}
+<div class="card text-center">
+  <h3 class="card-title">Insertar Cliente</h3>
+  </div>
+<div class="card">
+    <div class="card-body">
+    <form method="POST">
+           {% csrf_token %}
+           
+           <div class="form-group">
+            <input type="text" class="form-control" id="cli_cod" placeholder="Código" required {{ cliente_form.cli_cod }}
+            <div class="invalid-feedback">
+              Por favor ingrese un código.
+            </div>
+           </div>
+
+           <div class="form-group">
+            <input type="text" class="form-control" id="cli_nom" placeholder="Nombre" {{ cliente_form.cli_nom }}
+           </div>
+
+           <div class="form-group">
+            <input type="text" class="form-control" id="cli_apell" placeholder="Apellido" {{ cliente_form.cli_apell }}
+           </div>
+
+           <div class="form-group">
+            <input type="text" class="form-control" id="cli_tel" placeholder="Telefono" {{ cliente_form.cli_tel }}
+           </div>
+
+           <button type="submit" class="btn btn-primary">Insertar</button>
+        </form>
+  </div>
+</div>       
+{% endblock body %}

@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar trabajadores{% endblock titulo %}
+
+{% block body %}
+<div class="card text-center">
+    <h3 class="card-title">Lista de trabajadores</h3>
+    </div>
+   {% if trabajadores %}
+       <table class="table table-bordered">
+           <thead class="table-active">
+               <tr scope="col">
+                   <th>#</th>
+                   <th>Código</th>
+                   <th>Nombre</th>
+                   <th>Apellido</th>
+                   <th>Telefono</th>
+                   <th>Cargo</th>
+                   <th>Salario</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for trabajador in trabajadores %}
+               <tr>
+                   <td>{{ trabajador.id }}</td>
+                   <td>{{ trabajador.tra_cod }}</td>
+                   <td>{{ trabajador.tra_nom }}</td>
+                   <td>{{ trabajador.tra_apell }}</td>
+                   <td>{{ trabajador.tra_tel }}</td>
+                   <td>{{ trabajador.tra_cargo }}</td>
+                   <td>{{ trabajador.tra_sal }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   {% else %}
+   <h1>No hay trabajadores registrados</h1>
+   {% endif %}
+
+{% endblock body %}

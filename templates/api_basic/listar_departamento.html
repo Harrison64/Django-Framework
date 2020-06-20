@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar departamentos{% endblock titulo %}
+
+{% block body %}
+<div class="card text-center">
+   <h3 class="card-title">Lista de departamentos</h3>
+   </div>
+   {% if departamentos %}
+   
+       <table class="table table-bordered">
+           <thead class="table-active">
+               <tr scope="col">
+                   <th>#</th>
+                   <th>Código</th>
+                   <th>Nombre</th>
+                   <th>Telefono</th>
+                   <th>Ubicacion</th>
+                   <th>Modulo</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for departamento in departamentos %}
+               <tr>
+                   <td>{{ departamento.id }}</td>
+                   <td>{{ departamento.dep_cod }}</td>
+                   <td>{{ departamento.dep_nom }}</td>
+                   <td>{{ departamento.dep_tel }}</td>
+                   <td>{{ departamento.dep_ubica }}</td>
+                   <td>{{ departamento.dep_mod }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   {% else %}
+   <h1>No hay departamentos registrados</h1>
+   {% endif %}
+
+{% endblock body %}
